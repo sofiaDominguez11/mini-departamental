@@ -1,0 +1,7 @@
+{
+  "name": "mini-departamental",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
