@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mi Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="items.length > 0; else vacio">
+    <ion-item *ngFor="let item of items" lines="full">
+      <ion-thumbnail slot="start" style="width: 60px; height: 60px;">
+        <img [src]="item.image" style="object-fit: contain;" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2 style="font-weight: bold; font-size: 0.9rem;">{{ item.title }}</h2>
+        <p color="success" style="font-weight: bold;">{{ item.price | currency }}</p>
+        <ion-badge color="primary">Cant: {{ item.cantidad }}</ion-badge>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #vacio>
+    <div class="ion-text-center" style="margin-top: 50px;">
+      <ion-icon name="cart-outline" style="font-size: 64px; color: #ccc;"></ion-icon>
+      <p>Tu carrito está vacío.</p>
+    </div>
+  </ng-template>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="light" style="--padding-top: 8px; --padding-bottom: 8px;">
+    <ion-title slot="start" style="font-size: 1rem;">Total: {{ total | currency }}</ion-title>
+    
+    <ion-button slot="end" color="success" shape="round" 
+                (click)="simularPago()" 
+                [disabled]="items.length === 0">
+      Pagar Ahora
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

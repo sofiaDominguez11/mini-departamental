@@ -1,0 +1,63 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title style="font-size: 16px;">Detalle del Producto</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/carrito" style="position: relative;">
+        <ion-icon name="cart-outline" style="font-size: 24px;"></ion-icon>
+        <ion-badge color="danger" 
+                   style="position: absolute; top: -5px; right: -5px; font-size: 10px;" 
+                   *ngIf="dataService.getContadorCarrito() > 0">
+          {{ dataService.getContadorCarrito() }}
+        </ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="producto" class="ion-text-center">
+    
+    <img [src]="producto.image" style="max-height: 250px; margin-bottom: 20px; object-fit: contain;" />
+    
+    <ion-badge color="secondary" class="ion-margin-bottom">
+      {{ dataService.traducirCategoria(producto.category) }}
+    </ion-badge>
+    
+    <ion-item lines="none" class="ion-text-center">
+      <ion-label>
+        <h2 style="font-weight: bold; font-size: 1.4rem; white-space: normal;">{{ producto.title }}</h2>
+        <h1 color="success" style="font-size: 2.2rem; font-weight: bold; color: #2dd36f;">
+          ${{ producto.price }}
+        </h1>
+      </ion-label>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-no-padding">
+      <ion-label color="medium">
+        Disponibles: 
+        <ion-text [color]="stock > 0 ? 'primary' : 'danger'" style="font-weight: bold;">
+          {{ stock }} unidades
+        </ion-text>
+      </ion-label>
+    </ion-item>
+
+    <p style="text-align: justify; color: #666; line-height: 1.4;" class="ion-padding">
+      {{ producto.description }}
+    </p>
+
+    <div class="ion-padding">
+      <ion-button expand="block" shape="round" color="warning" 
+                  (click)="anadirAlCarrito()" [disabled]="stock <= 0">
+        <ion-icon name="cart-outline" slot="start"></ion-icon>
+        {{ stock > 0 ? 'Añadir al Carrito' : 'Agotado' }}
+      </ion-button>
+    </div>
+    
+  </div>
+</ion-content>

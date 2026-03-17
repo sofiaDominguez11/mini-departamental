@@ -1,27 +1,59 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+/* Forzamos al toolbar a no añadir espacio extra */
+ion-toolbar {
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding-end: 0;
 }
 
-#container strong {
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 4px;
+  height: 44px; /* Altura delgada estándar de app móvil */
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  flex: 1; 
+  margin: 0 8px;
+  background: white; /* Fondo blanco para el conjunto logo-buscador */
+  border-radius: 20px;
+  padding-left: 10px;
+  height: 32px;
+}
+
+.logo-mini {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-right: 1px solid #ddd; /* Separador sutil */
+  padding-right: 8px;
+  margin-right: 5px;
+
+  img {
+    height: 16px;
+    margin-right: 4px;
+  }
+  
+  span {
+    font-weight: bold;
+    font-size: 0.75rem;
+    color: #0071ce; /* Texto azul sobre fondo blanco */
+  }
+}
+
+.compact-search {
+  --background: transparent;
+  --box-shadow: none;
+  --padding-start: 0;
+  --height: 30px;
+  flex: 1;
+}
+
+.menu-btn-small, .cart-btn-small {
+  --color: rgb(0, 0, 0);
   font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
 }
