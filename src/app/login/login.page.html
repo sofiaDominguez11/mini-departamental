@@ -1,36 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>Walmart - Acceso</ion-title>
+    <ion-title>Walmart - Bienvenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="login-container ion-text-center">
-    <div class="ion-padding">
-      <ion-icon name="person-circle-outline" style="font-size: 80px; color: var(--ion-color-primary);"></ion-icon>
-      <h2>Bienvenido</h2>
-      <p>Inicia sesión para continuar</p>
+    
+    <div class="ion-padding" style="margin-top: 20px;">
+      <img src="assets/walmart.png" 
+           style="width: 120px; height: auto; margin: 0 auto;" 
+           alt="Walmart Logo">
+      
+      <h2 style="font-weight: bold; margin-top: 25px; color: var(--ion-color-dark);">Bienvenido</h2>
+      <p style="color: #666;">Inicia sesión para continuar</p>
     </div>
 
-    <ion-list lines="inset">
-      <ion-item>
+    <ion-list lines="inset" style="background: transparent; margin-top: 10px;">
+      <ion-item style="--background: transparent;">
         <ion-label position="floating">Correo</ion-label>
         <ion-input type="email" [(ngModel)]="user.email" placeholder="tu@correo.com"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item style="--background: transparent;">
         <ion-label position="floating">Contraseña</ion-label>
         <ion-input type="password" [(ngModel)]="user.password" placeholder="******"></ion-input>
       </ion-item>
     </ion-list>
 
     <div class="ion-padding-top">
-      <ion-button expand="block" shape="round" (click)="ingresar()" class="ion-margin-top">
+      <ion-button expand="block" shape="round" (click)="ingresar()" class="ion-margin-top" color="primary">
         Entrar
       </ion-button>
 
-      <ion-button expand="block" fill="clear" routerLink="/registro" class="ion-margin-top">
-        ¿No tienes cuenta? <strong style="margin-left: 5px;">Regístrate aquí</strong>
+      <ion-button expand="block" fill="clear" routerLink="/registro" class="ion-margin-top" color="medium">
+        ¿No tienes cuenta? <strong style="margin-left: 5px; color: var(--ion-color-primary);">Regístrate aquí</strong>
       </ion-button>
     </div>
   </div>

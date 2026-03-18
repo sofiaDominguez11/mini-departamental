@@ -13,6 +13,7 @@ import { IonSearchbar } from '@ionic/angular/standalone';
   standalone: true,
   imports: [IonicModule, CommonModule, 
     RouterModule, IonSearchbar]
+  //no se me olvide el searchbar
 })
 export class HomePage implements OnInit {
   public dataService = inject(DataService);
